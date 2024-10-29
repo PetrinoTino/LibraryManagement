@@ -1,0 +1,254 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// Petrino Qasolli
+//
+
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+
+public class LibraryManagement extends JFrame implements ActionListener {
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
+    private JLabel label4;
+    private JLabel label5;
+    private JLabel label6;
+    private JLabel label7;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JButton addButton;
+    private JButton viewButton;
+    private JButton editButton;
+    private JButton deleteButton;
+    private JButton clearButton;
+    private JButton exitButton;
+    private JPanel panel;
+    private ArrayList<String[]> books = new ArrayList();
+    private JFrame viewFrame;
+
+    public LibraryManagement() {
+        this.setTitle("Library Management System");
+        this.setSize(1200, 600);
+        this.setDefaultCloseOperation(3);
+        this.setLocationRelativeTo((Component)null);
+        Font var1 = new Font("Arial", 1, 20);
+        this.label1 = new JLabel("Book ID");
+        this.label2 = new JLabel("Book Title");
+        this.label3 = new JLabel("Author");
+        this.label4 = new JLabel("Publisher");
+        this.label5 = new JLabel("Year of Publication");
+        this.label6 = new JLabel("ISBN");
+        this.label7 = new JLabel("Number of Copies");
+        this.label1.setFont(var1);
+        this.label2.setFont(var1);
+        this.label3.setFont(var1);
+        this.label4.setFont(var1);
+        this.label5.setFont(var1);
+        this.label6.setFont(var1);
+        this.label7.setFont(var1);
+        this.textField1 = new JTextField(20);
+        this.textField2 = new JTextField(20);
+        this.textField3 = new JTextField(20);
+        this.textField4 = new JTextField(20);
+        this.textField5 = new JTextField(20);
+        this.textField6 = new JTextField(20);
+        this.textField7 = new JTextField(20);
+        this.textField1.setFont(var1);
+        this.textField2.setFont(var1);
+        this.textField3.setFont(var1);
+        this.textField4.setFont(var1);
+        this.textField5.setFont(var1);
+        this.textField6.setFont(var1);
+        this.textField7.setFont(var1);
+        this.addButton = new JButton("Add");
+        this.viewButton = new JButton("View");
+        this.editButton = new JButton("Edit");
+        this.deleteButton = new JButton("Delete");
+        this.clearButton = new JButton("Clear");
+        this.exitButton = new JButton("Exit");
+        this.addButton.setFont(var1);
+        this.viewButton.setFont(var1);
+        this.editButton.setFont(var1);
+        this.deleteButton.setFont(var1);
+        this.clearButton.setFont(var1);
+        this.exitButton.setFont(var1);
+        this.addButton.addActionListener(this);
+        this.viewButton.addActionListener(this);
+        this.editButton.addActionListener(this);
+        this.deleteButton.addActionListener(this);
+        this.clearButton.addActionListener(this);
+        this.exitButton.addActionListener(this);
+        this.panel = new JPanel(new GridBagLayout());
+        GridBagConstraints var2 = new GridBagConstraints();
+        var2.insets = new Insets(5, 5, 5, 5);
+        var2.gridx = 0;
+        var2.gridy = 0;
+        this.panel.add(this.label1, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField1, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        this.panel.add(this.label2, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField2, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        this.panel.add(this.label3, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField3, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        this.panel.add(this.label4, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField4, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        this.panel.add(this.label5, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField5, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        this.panel.add(this.label6, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField6, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        this.panel.add(this.label7, var2);
+        ++var2.gridx;
+        this.panel.add(this.textField7, var2);
+        var2.gridx = 0;
+        ++var2.gridy;
+        var2.anchor = 10;
+        JPanel var3 = new JPanel(new FlowLayout());
+        var3.add(this.addButton);
+        var3.add(this.viewButton);
+        var3.add(this.editButton);
+        var3.add(this.deleteButton);
+        var3.add(this.clearButton);
+        var3.add(this.exitButton);
+        this.panel.add(var3, var2);
+        this.add(this.panel);
+        this.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent var1) {
+        String[] var2;
+        if (var1.getSource() == this.addButton) {
+            var2 = new String[]{this.textField1.getText(), this.textField2.getText(), this.textField3.getText(), this.textField4.getText(), this.textField5.getText(), this.textField6.getText(), this.textField7.getText()};
+            this.books.add(var2);
+            JOptionPane.showMessageDialog(this, "Book added successfully");
+            this.clearFields();
+        } else if (var1.getSource() == this.viewButton) {
+            var2 = new String[]{"Book ID", "Book Title", "Author", "Publisher", "Year of Publication", "ISBN", "Number of Copies"};
+            String[][] var3 = new String[this.books.size()][7];
+
+            for(int var4 = 0; var4 < this.books.size(); ++var4) {
+                var3[var4] = (String[])this.books.get(var4);
+            }
+
+            JTable var18 = new JTable(var3, var2);
+            byte var5 = 5;
+            var18.setIntercellSpacing(new Dimension(var5, var5));
+            JScrollPane var6 = new JScrollPane(var18);
+            Font var7 = var18.getFont();
+            Font var8 = new Font(var7.getName(), var7.getStyle(), 20);
+            var18.setFont(var8);
+            byte var9 = 30;
+            var18.setRowHeight(var9);
+            short var10 = 150;
+            TableColumnModel var11 = var18.getColumnModel();
+
+            for(int var12 = 0; var12 < var11.getColumnCount(); ++var12) {
+                TableColumn var13 = var11.getColumn(var12);
+                var13.setPreferredWidth(var10);
+            }
+
+            JTableHeader var20 = var18.getTableHeader();
+            Font var21 = var20.getFont();
+            Font var14 = new Font(var21.getName(), 1, 20);
+            var20.setFont(var14);
+            JFrame var15 = new JFrame("View Books");
+            var15.add(var6);
+            var15.setSize(1000, 700);
+            var15.setLocationRelativeTo(this);
+            var15.setVisible(true);
+        } else {
+            String var16;
+            int var17;
+            if (var1.getSource() == this.editButton) {
+                var16 = JOptionPane.showInputDialog(this, "Enter book ID to edit:");
+
+                for(var17 = 0; var17 < this.books.size(); ++var17) {
+                    if (((String[])this.books.get(var17))[0].equals(var16)) {
+                        String[] var19 = new String[]{var16, this.textField2.getText(), this.textField3.getText(), this.textField4.getText(), this.textField5.getText(), this.textField6.getText(), this.textField7.getText()};
+                        this.books.set(var17, var19);
+                        JOptionPane.showMessageDialog(this, "Book updated successfully");
+                        this.clearFields();
+                        return;
+                    }
+                }
+
+                JOptionPane.showMessageDialog(this, "Book not found");
+            } else if (var1.getSource() == this.deleteButton) {
+                var16 = JOptionPane.showInputDialog(this, "Enter book ID to delete:");
+
+                for(var17 = 0; var17 < this.books.size(); ++var17) {
+                    if (((String[])this.books.get(var17))[0].equals(var16)) {
+                        this.books.remove(var17);
+                        JOptionPane.showMessageDialog(this, "Book deleted successfully");
+                        this.clearFields();
+                        return;
+                    }
+                }
+
+                JOptionPane.showMessageDialog(this, "Book not found");
+            } else if (var1.getSource() == this.clearButton) {
+                this.clearFields();
+            } else if (var1.getSource() == this.exitButton) {
+                System.exit(0);
+            }
+        }
+
+    }
+
+    private void clearFields() {
+        this.textField1.setText("");
+        this.textField2.setText("");
+        this.textField3.setText("");
+        this.textField4.setText("");
+        this.textField5.setText("");
+        this.textField6.setText("");
+        this.textField7.setText("");
+    }
+
+    public static void main(String[] var0) {
+        SwingUtilities.invokeLater(() -> {
+            new LibraryManagement();
+        });
+    }
+}
