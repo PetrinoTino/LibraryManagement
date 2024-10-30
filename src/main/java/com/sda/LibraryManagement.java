@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
+
 public class LibraryManagement extends JFrame implements ActionListener {
     private JLabel label1, label2, label3, label4, label5, label6, label7, label8;
     private JTextField textField1, textField2, textField3, textField4, textField5, textField6, textField7;
@@ -13,6 +14,7 @@ public class LibraryManagement extends JFrame implements ActionListener {
     private JPanel panel;
     private ArrayList<String[]> books = new ArrayList<>();
     private JFrame viewFrame;
+
 
     public LibraryManagement() {
         setTitle("Library Management System");
@@ -28,6 +30,7 @@ public class LibraryManagement extends JFrame implements ActionListener {
         label5 = new JLabel("Year of Publication");
         label6 = new JLabel("ISBN");
         label7 = new JLabel("Number of Copies");
+
 
         label1.setFont(font);
         label2.setFont(font);
@@ -52,6 +55,7 @@ public class LibraryManagement extends JFrame implements ActionListener {
         textField5.setFont(font);
         textField6.setFont(font);
         textField7.setFont(font);
+
 
         addButton = new JButton("Add");
         viewButton = new JButton("View");
@@ -192,7 +196,9 @@ public class LibraryManagement extends JFrame implements ActionListener {
 
             frame.setVisible(true);
         } else if (e.getSource() == editButton) {
+
             String bookID = JOptionPane.showInputDialog(this, "Enter book ID to edit:");
+
             for (int i = 0; i < books.size(); i++) {
                 if (books.get(i)[0].equals(bookID)) {
                     String[] book = new String[7];
@@ -229,6 +235,7 @@ public class LibraryManagement extends JFrame implements ActionListener {
     }
 
     private void clearFields() {
+
         textField1.setText("");
         textField2.setText("");
         textField3.setText("");
