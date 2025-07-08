@@ -174,7 +174,7 @@ public class LibraryManagement extends JFrame implements ActionListener {
             int rowHeight = 30; // Adjust the row height as needed
             table.setRowHeight(rowHeight);
 
-// Increase column width
+
             int columnWidth = 150; // Adjust the column width as needed
             TableColumnModel columnModel = table.getColumnModel();
             for (int columnIndex = 0; columnIndex < columnModel.getColumnCount(); columnIndex++) {
@@ -183,7 +183,7 @@ public class LibraryManagement extends JFrame implements ActionListener {
             }
 
 
-            // Set font size for table header
+
             JTableHeader tableHeader = table.getTableHeader();
             Font headerFont = tableHeader.getFont();
             Font newHeaderFont = new Font(headerFont.getName(), Font.BOLD, 20);
